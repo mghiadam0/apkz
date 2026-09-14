@@ -1,0 +1,56 @@
+plugins {
+    id 'com.android.application'
+    id 'com.chaquo.python'
+}
+
+android {
+    namespace 'com.omghil.quicknotes'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.omghil.quicknotes"
+        minSdk 24
+        targetSdk 34
+        versionCode 1
+        versionName "1.0"
+
+        ndk {
+            abiFilters "arm64-v8a", "armeabi-v7a", "x86_64"
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+        }
+    }
+
+    buildFeatures {
+        viewBinding false
+    }
+}
+
+chaquopy {
+    defaultConfig {
+        version "3.11"
+        pip {
+            // نفس requirements.txt الأصلية، بدون psycopg و gunicorn
+            // (غير محتاجينهم لأن ما فيه سيرفر خارجي ولا PostgreSQL هنا)
+            install "flask==3.1.0"
+            install "flask-sqlalchemy==3.1.1"
+            install "flask-wtf==1.2.2"
+            install "apscheduler==3.11.0"
+            install "python-dateutil==2.9.0.post0"
+            install "python-dotenv==1.0.1"
+        }
+    }
+    sourceSets {
+        main {
+            srcDirs = ["src/main/python"]
+        }
+    }
+}
+
+dependencies {
+    implementation 'androidx.appcompat:appcompat:1.7.0'
+}

@@ -1,0 +1,1 @@
+{% extends 'base.html' %}{% block content %}<div class="section-title"><div><p class="eyebrow">SCHEDULE</p><h1>{{t('calendar')}}</h1></div><input type="month" id="month" value="{{month}}"></div><section class="calendar panel" id="calendar"></section>{% endblock %}{% block scripts %}<script src="{{url_for('static',filename='js/calendar.js')}}" defer></script>{% endblock %}
