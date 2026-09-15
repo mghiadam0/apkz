@@ -9,7 +9,7 @@ source.include_patterns = assets/*,static/*
 
 version = 1.0.0
 
-requirements = python3,kivy==2.3.0,sqlite3
+requirements = python3,kivy==2.3.0
 
 orientation = portrait
 fullscreen = 0
@@ -24,6 +24,9 @@ android.archs = arm64-v8a, armeabi-v7a
 android.allow_backup = False
 android.debug = True
 android.release = False
+
+p4a.branch = master
+p4a.python_version = 3.11.5
 
 [buildozer]
 log_level = 2
