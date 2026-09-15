@@ -1,1 +1,0 @@
-key: buildozer-v3-${{ hashFiles('buildozer.spec') }}
